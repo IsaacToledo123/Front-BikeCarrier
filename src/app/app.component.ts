@@ -9,6 +9,7 @@ import { ProductComponent } from "./componets/product/product.component";
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
     imports: [RouterOutlet, ProductComponent]
+    
 })
 export class AppComponent {
   title = 'midudev-app';

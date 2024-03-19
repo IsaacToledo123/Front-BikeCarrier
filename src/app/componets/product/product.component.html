@@ -1,9 +1,10 @@
 <div class="m-10">
-  <div class="bg-blue-900 rounded-2xl">
+
+  <div class="bg-orange-500 rounded-2xl m-10">
     <div class="">
       <div class="flex  rounded-b-3xl bg-gray-100 space-y-5 flex-col items-center py-7">
-        <img class="h-28 w-28 rounded-full" src="../../../assets/userFoto.jpeg" alt="User">
-        <a href="#"> <span class="text-h1">UserName</span></a>
+        <img class="h-40 w-40 rounded-full" src="../../../assets/userFoto.jpeg" alt="User">
+        <a href="#"> <span class="text-2xl font-semibold">UserName</span></a>
       </div>
     </div>
     <div class="grid grid-cols-3 text-center ">
@@ -27,55 +28,63 @@
       </div>
     </div>
   </div>
+<div class="flex">
+  
 
-  <div class="pt-10">
-    <div class="grid grid-cols-2 text-center">
-      <div class="shadow-lg p-6 bg-white flex flex-col items-center justify-center hover:bg-gray-50"
+  <div class="w-1/2 m-10">
+    <div class="grid grid-cols-2 gap-4 text-center ">
+      <div class="shadow-lg p-6 bg-white flex flex-col items-center justify-center  border border-orange-500 rounded-xl border-b-4 hover:border-orange-300"
         (click)="cambiarRuta()">
         <div class="w-40">
-          <img src="../../../assets/user.png" alt="">
+
+          <i class="fas fa-user fa-5x"></i>
 
         </div>
         <h1 class="text-2xl">Usuario</h1>
       </div>
 
-      <div class="shadow-lg p-6 bg-white flex flex-col items-center justify-center hover:bg-gray-50">
+
+      
+      <div class="shadow-lg p-6 bg-white flex flex-col items-center justify-center  border border-orange-500 rounded-xl border-b-4 hover:border-orange-300">
         <div class="w-40">
-          <img src="../../../assets/user.png" alt="">
+          <i class="fas fa-thermometer-half fa-5x"></i>
 
         </div>
-        <h1 class="text-2xl">Bicicleta</h1>
+        <h1 class="text-2xl">temperatura</h1>
       </div>
-      <div class="shadow-lg p-6 bg-white flex flex-col items-center justify-center hover:bg-gray-50">
+      <div class="shadow-lg p-6 bg-white flex flex-col items-center justify-center  border border-orange-500 rounded-xl border-b-4 hover:border-orange-300">
         <div class="w-40">
-          <img src="../../../assets/user.png" alt="">
+          <i class="fas fa-bell fa-5x"></i>
+
 
         </div>
-        <h1 class="text-2xl">Bicicleta</h1>
+        <h1 class="text-2xl">Notificaciones</h1>
       </div>
-      <div class="shadow-lg p-6 bg-white flex flex-col items-center justify-center hover:bg-gray-50">
+      <div class="shadow-lg p-6 bg-white flex flex-col items-center justify-center  border border-orange-500 rounded-xl border-b-4 hover:border-orange-300">
         <div class="w-40">
-          <img src="../../../assets/user.png" alt="">
+          <i class="fas fa-history fa-5x"></i>
+
 
         </div>
-        <h1 class="text-2xl">Bicicleta</h1>
-      </div>
-      <div class="shadow-lg p-6 bg-white flex flex-col items-center justify-center hover:bg-gray-50">
-        <div class="w-40">
-          <img src="../../../assets/user.png" alt="">
-
-        </div>
-        <h1 class="text-2xl">Bicicleta</h1>
-      </div>
-      <div class="shadow-lg p-6 bg-white flex flex-col items-center justify-center hover:bg-gray-50">
-        <div class="w-40">
-          <img src="../../../assets/user.png" alt="">
-
-        </div>
-        <h1 class="text-2xl">Bicicleta</h1>
+        <h1 class="text-2xl">historial</h1>
       </div>
 
     </div>
   </div>
+<div class="w-1/2 text-center flex flex-col">
+  <div class="m-10">
+    <h1 class="text-4xl font-semibold text-gray-600">Generate Your Qr</h1>
+  </div>
+  <div>
+    <button class="bg-orange-500 hover:bg-orange-700 text-white text-xl font-bold py-2 px-4 rounded">
+      <i class="fas fa-cloud-upload-alt mr-2"></i> Generate
+    </button>
+  </div>
+  <div class="text-xl text-gray-500 font-semibold mt-auto bg-gray-200 py-4 mb-10 ">
+    El código QR generado estará disponible por 24 horas. Una vez cumplido este tiempo, deberá generar otro.
+  </div>
+</div>
 
+  
+</div>
 </div>
