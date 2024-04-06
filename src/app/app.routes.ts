@@ -7,7 +7,9 @@ import { CostosComponent } from './costos/costos.component';
 import { TemperaturaComponent } from './temperatura/temperatura.component';
 import { SettingsComponent } from './settings/settings.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { HistorialComponent } from './historial/historial.component';
 export const routes: Routes = [
+    { path: 'historial', component:HistorialComponent  },
     { path: 'notificaciones', component:NotificationsComponent  },
     { path: 'configuraciones', component:SettingsComponent  },
     { path: 'temperatura', component:TemperaturaComponent  },
