@@ -8,7 +8,9 @@ import { TemperaturaComponent } from './temperatura/temperatura.component';
 import { SettingsComponent } from './settings/settings.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { HistorialComponent } from './historial/historial.component';
+import { ManualComponent } from './manual/manual.component';
 export const routes: Routes = [
+    { path: 'manual', component:ManualComponent},
     { path: 'historial', component:HistorialComponent  },
     { path: 'notificaciones', component:NotificationsComponent  },
     { path: 'configuraciones', component:SettingsComponent  },
@@ -19,4 +21,4 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: '', component: HomeComponent }, 
 
-];
+]; 

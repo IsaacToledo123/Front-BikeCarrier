@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-product',
   standalone: true,
   imports: [],
-  templateUrl: './product.component.html',
+  templateUrl: './product.component.html', 
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
