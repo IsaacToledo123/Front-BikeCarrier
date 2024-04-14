@@ -9,8 +9,10 @@ import { SettingsComponent } from './components/servicios/settings/settings.comp
 import { NotificationsComponent } from './components/servicios/notifications/notifications.component';
 import { HistorialComponent } from './components/servicios/historial/historial.component';
 import { RecuPassComponent } from './components/servicios/recu-pass/recu-pass.component';
+import { ManualComponent } from './manual/manual.component';
 export const routes: Routes = [
     { path: 'recuperarContraseña', component: RecuPassComponent }, 
+    { path: 'manual', component: ManualComponent }, 
     { path: 'historial', component:HistorialComponent  },
     { path: 'notificaciones', component:NotificationsComponent  },
     { path: 'configuraciones', component:SettingsComponent  },
@@ -21,4 +23,4 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: '', component: HomeComponent }, 
 
-];
+]; 
