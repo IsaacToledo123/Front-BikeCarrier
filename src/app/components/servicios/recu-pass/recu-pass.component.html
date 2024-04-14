@@ -1,0 +1,13 @@
+<div class="m-20 flex flex-col items-center justify-center h-full">
+    <div>
+        <h1 class="text-5xl font-semibold text-red-600 text-center">RECUPERAR CONTRASEÑA </h1>
+        <h2 class="m-10 text-2xl opacity-75 text-justify">Su contraseña ah sido vulnerada. Para acceder nuevamente a su cuenta, por favor genere una contraseña más segura.</h2>
+        <form class="flex flex-col  items-center p-20" [formGroup]="recuForm" (ngSubmit)="Onsubmit()">
+            
+            <label for="new-password" class="text-2xl m-10">Nueva Contraseña</label>
+            <input type="text" id="new-password" class="border-b p-2  border-red-500" placeholder="Username">
+            <input type="password" id="new-password" class="border-b p-2  border-red-500" placeholder="******">
+            <button class="p-2 bg-green-500 rounded-2xl text-2xl m-10">Aceptar</button>
+        </form>
+    </div>
+</div>

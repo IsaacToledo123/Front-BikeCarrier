@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
-import { ProductComponent } from "../componets/product/product.component";
+import { ProductComponent } from "../../../componets/product/product.component";
 
 @Component({
     selector: 'app-home',

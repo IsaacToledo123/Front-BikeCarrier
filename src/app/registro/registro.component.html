@@ -1,45 +1,120 @@
-<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-200 to-orange-600 bg-opacity-75 shadow-lg rounded-lg p-8 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-10 p-5 bg-white rounded-lg">
       <div>
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-orange-800">
           Registro
         </h2>
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST">
+      <form [formGroup]="userForm" (ngSubmit)="OnSubmit($event)" class="mt-8 space-y-6" autocomplete="off" novalidate >
         <input type="hidden" name="remember" value="true">
         <div class="rounded-md shadow-sm -space-y-px">
-          <div>
+          <div class="p-2 flex">
+            <label for="nombre" class="sr-only">Nombre</label>
+            <input id="nombre"  type="text" 
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border-b-2 border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+              placeholder="Nombre"
+              formControlName="nombre"
+              >
+              <i class="fas fa-user text-orange-500 opacity-75  fa-2x"></i>
+
+
+             
+          </div>
+          @if (userForm.get('nombre')?.hasError('required') && userForm.get('nombre')?.touched){
+            <div class="text-red-500 p-2">
+              name is required
+             </div>
+          }
+          
+       
+          <div class="p-2 flex">
+            <label for="apellidoP" class="sr-only">Apellido Paterno</label>
+            <input id="apellidoP"  type="text" autocomplete="username" required
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border-b-2 border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+              placeholder="Apellido Paterno"
+              formControlName="apellidoP"
+              >
+              <i class="fas fa-id-card  text-orange-500 opacity-75  fa-2x"></i>
+             
+              
+          </div>
+          @if (userForm.get('apellidoP')?.hasError('required') && userForm.get('apellidoP')?.touched){
+            <div class="text-red-500">
+              apellido is required
+             </div>
+          }
+          <div class="p-2 flex">
+            <label for="apellidoM" class="sr-only">Apellido Materno</label>
+            <input id="apellidoM" type="text" autocomplete="apellidoM" required
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border-b-2 border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+              placeholder="Apellido Materno"
+              formControlName="apellidoM"
+              >
+              <i class="fas fa-id-card  text-orange-500 opacity-75  fa-2x"></i>
+
+          
+          </div>
+          @if (userForm.get('apellidoM')?.hasError('required') && userForm.get('apellidoM')?.touched){
+            <div class="text-red-500 p-2">
+              apellido is required
+             </div>
+          }
+          
+          <div class="p-2 flex">
+            <label for="email-address" class="sr-only">Correo electrónico</label>
+            <input id="email" type="email" autocomplete="email" required
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border-b-2 border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+              placeholder="Correo electrónico"
+              formControlName="email"
+              >
+              <i class="fas fa-envelope text-orange-500 opacity-75 fa-2x"></i>
+
+
+            </div>
+            @if (userForm.get('email')?.hasError('required') && userForm.get('email')?.touched){
+            <div class="text-red-500">
+                email is required
+               </div>
+            }
+          <div class="p-2 flex">
             <label for="username" class="sr-only">Nombre de usuario</label>
             <input id="username" name="username" type="text" autocomplete="username" required
-              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-              placeholder="Nombre de usuario">
-          </div>
-          <div>
-            <label for="email-address" class="sr-only">Correo electrónico</label>
-            <input id="email-address" name="email" type="email" autocomplete="email" required
-              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-              placeholder="Correo electrónico">
-          </div>
-          <div>
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border-b-2 border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+              placeholder="Nombre de usuario"
+              formControlName="username"
+              >
+              <i class="fas fa-user  text-orange-500 opacity-75  fa-2x"></i>
+
+            </div>
+            @if (userForm.get('username')?.hasError('required') && userForm.get('username')?.touched){
+              <div class="text-red-500">
+                Username is required
+               </div>
+            }
+          <div class="p-2 flex" >
             <label for="password" class="sr-only">Contraseña</label>
             <input id="password" name="password" type="password" autocomplete="new-password" required
-              class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-              placeholder="Contraseña">
+              class="appearance-none rounded-none relative block w-full px-3 py-2 border-b-2 border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+              placeholder="Contraseña"
+              formControlName="password"
+              >
+              <i class="fas fa-lock  text-orange-500 opacity-75  fa-2x"></i>
+
+            </div>
+            @if (userForm.get('password')?.hasError('required') && userForm.get('password')?.touched){
+              <div class="text-red-500">
+                password is required
+               </div>
+            }
           </div>
-        </div>
   
         <div>
           <button type="submit"
-            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-              <!-- Heroicon name: lock-closed -->
-              <svg class="h-5 w-5 text-blue-500 group-hover:text-blue-400" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd"
-                  d="M10 12a2 2 0 100-4 2 2 0 000 4zM3 8a7 7 0 1114 0h-1a6 6 0 10-12 0H3zm0 0h1a5 5 0 0110 0h1a8 8 0 10-16 0H3zm10 3a1 1 0 11-2 0 1 1 0 012 0z"
-                  clip-rule="evenodd" />
-              </svg>
-            </span>
+    
+            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+           
+               />
+             
             Registrarse
           </button>
         </div>

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { Router } from '@angular/router';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
-import { LoginService } from '../../components/page/login/login.service';
+import { LoginService } from '../page/login/login.service';
 import { log } from 'console';
 
 @Component({

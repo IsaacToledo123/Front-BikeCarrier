@@ -1,14 +1,16 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './components/page/login/login.component';
+import { HomeComponent } from './components/page/home/home.component';
 import { UserComponent } from './user/user.component';
 import { RegistroComponent } from './registro/registro.component';
-import { CostosComponent } from './costos/costos.component';
-import { TemperaturaComponent } from './temperatura/temperatura.component';
-import { SettingsComponent } from './settings/settings.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { HistorialComponent } from './historial/historial.component';
+import { CostosComponent } from './components/page/costos/costos.component';
+import { TemperaturaComponent } from './components/servicios/temperatura/temperatura.component';
+import { SettingsComponent } from './components/servicios/settings/settings.component';
+import { NotificationsComponent } from './components/servicios/notifications/notifications.component';
+import { HistorialComponent } from './components/servicios/historial/historial.component';
+import { RecuPassComponent } from './components/servicios/recu-pass/recu-pass.component';
 export const routes: Routes = [
+    { path: 'recuperarContraseña', component: RecuPassComponent }, 
     { path: 'historial', component:HistorialComponent  },
     { path: 'notificaciones', component:NotificationsComponent  },
     { path: 'configuraciones', component:SettingsComponent  },
