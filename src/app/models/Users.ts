@@ -8,6 +8,19 @@ export interface User{
     password:string;
     plan:string;
 }
+export interface Pay{
+    id?:string;
+    concepto:string;
+    cantidad:number;
+    numerodetarjeta:number;
+    personafisca:string;
+    telefono:number;
+    correo:string;
+    paquete:number;
+    cvv:number;
+    fechadevencimiento:Date;
+    iduser:string;
+}
 export interface ApiResponse<T>{
     message?: string,
     data:T,

@@ -11,8 +11,8 @@ export class UserServiceService {
   constructor(private http:HttpClient) {
     
    }
-   updateUser(id:string,user:UserPass){
-    return this.http.put<ApiResponse<UserPass>>(`http://localhost:3000/${user}/newPass`,user)
+   updateUser(user:UserPass){
+    return this.http.put<ApiResponse<UserPass>>(` http://localhost:3000/user/newPass`,user)
   }
 }
  

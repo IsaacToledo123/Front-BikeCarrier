@@ -10,7 +10,9 @@ import { NotificationsComponent } from './components/servicios/notifications/not
 import { HistorialComponent } from './components/servicios/historial/historial.component';
 import { RecuPassComponent } from './components/servicios/recu-pass/recu-pass.component';
 import { ManualComponent } from './manual/manual.component';
+import { PayComponent } from './pay/pay.component';
 export const routes: Routes = [
+    { path: 'pay', component: PayComponent }, 
     { path: 'recuperarContraseña', component: RecuPassComponent }, 
     { path: 'manual', component: ManualComponent }, 
     { path: 'historial', component:HistorialComponent  },

@@ -22,34 +22,37 @@ export class LoginComponent {
 
   }
   onSubmit() {
-    this.loginService.postLogin(this.loginForm.value).subscribe(
-      (res: any) => {
-        console.log(res.data);
-        localStorage.setItem("token", res.data.token);
-        this.loginService.disparadorDeUsuario.emit({
-          data: res.data.user.username
-        });
-        console.log(res.data.user.username);
-        Swal.fire({
-          icon: 'success',
-          title: '¡Inicio de sesión exitoso!',
-          text: 'Bienvenido de vuelta, ' + res.data.user.username + '!',
-        }).then((result) => {
-          if (result.isConfirmed || result.isDismissed) {
-            this.router.navigate(['/']); 
-          }
-        });
-      },
-      (error) => {
-        console.log(error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: error.error.msn,
-        });
-      }
-    );
-  }
+    if(this.loginForm.valid){
+      this.loginService.postLogin(this.loginForm.value).subscribe(
+        (res: any) => {
+          console.log(res.data);
+        
+          localStorage.setItem("token", res.data.token);
+          this.loginService.disparadorDeUsuario.emit({
+            data: res.data.user.username
+          });
+          Swal.fire({
+            icon: 'success',
+            title: '¡Inicio de sesión exitoso!',
+            text: 'Bienvenido de vuelta, ' + res.data.user.username + '!',
+          }).then((result) => {
+            if (result.isConfirmed || result.isDismissed) {
+              this.router.navigate(['/']); 
+            }
+          });
+        },
+        (error) => {
+          console.log(error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.error.msn,
+          });
+        }
+      );
+    }
+    }
+    
 
 
 

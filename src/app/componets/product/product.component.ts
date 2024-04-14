@@ -37,7 +37,7 @@ export class ProductComponent implements OnInit {
 
   getUser(): void {
     this.productSrvices.disparadorDeUsuario.subscribe(data => {
-      console.log(data.data);
+      console.log(`username :${data.data}`);
       localStorage.setItem("username", data.data)
       this.userData = data.data
       localStorage.setItem("photo", this.userData.charAt(0).toUpperCase())
