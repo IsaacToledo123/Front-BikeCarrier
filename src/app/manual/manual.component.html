@@ -1,42 +1,50 @@
 <app-navbar></app-navbar>
-<div class="container mx-auto px-4 py-8">
-  <div class="text-center">
-    <h1 class="text-3xl font-semibold mb-4">Bienvenido a Bike Carrier</h1>
-    <p class="text-lg text-gray-700 mb-8">Tu solución de transporte seguro para bicicletas.</p>
-  </div>
+<link rel="stylesheet" type="text/css" href="manual.component.css">
 
-  <section id="como-funciona" class="mb-12">
-    <h2 class="text-2xl font-semibold mb-4">¿Cómo funciona?</h2>
-    <p class="text-gray-700 mb-4">Para comenzar a usar Bike Carrier, primero debes registrarte con tus datos personales. Una vez registrado, podrás elegir entre nuestras tarifas disponibles.</p>
-    <div class="grid grid-cols-1 gap-4">
-      <div class="bg-white rounded-lg shadow-md p-4 flex items-center justify-center">
-        <img src="../../assets/historial.png" alt="Historial" class="w-64 h-64 mr-4">
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Historial de temperaturas</h3>
-          <p class="text-gray-700">La aplicación registra las temperaturas más alta y baja registradas cada día mientras tu bicicleta está en el portabicicletas. Esto te proporciona un registro histórico que puedes revisar en cualquier momento para tener una idea de las condiciones climáticas que ha experimentado tu bicicleta en el pasado.</p>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md p-4 flex items-center justify-center">
-        <img src="../../assets/notificaciones.png" alt="Notificaciones" class="w-64 h-64 mr-4">
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Recepción de notificaciones</h3>
-          <p class="text-gray-700">Bike Carrier te mantiene informado mediante notificaciones en caso de que se detecte algún intento de robo a tu bicicleta o si las condiciones climáticas son adversas. Esto te permite actuar rápidamente para proteger tu bicicleta o tomar medidas para evitar daños debido al clima.</p>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md p-4 flex items-center justify-center">
-        <img src="../../assets/qr.png" alt="Generación de QR" class="w-64 h-64 mr-4">
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Generación de un código QR</h3>
-          <p class="text-gray-700">Cuando colocas tu bicicleta en el portabicicletas, la aplicación te permite generar un código QR único. Este código QR es utilizado para desbloquear el candado de seguridad de tu bicicleta. Es una medida de seguridad adicional para garantizar que solo tú puedas acceder a tu bicicleta.</p>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md p-4 flex items-center justify-center">
-        <img src="../../assets/temperatura.png" alt="Temperatura" class="w-64 h-64 mr-4">
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Visualización de la temperatura actual</h3>
-          <p class="text-gray-700">La aplicación te proporciona información en tiempo real sobre la temperatura ambiente en la que se encuentra tu bicicleta mientras está en el portabicicletas. Esto te permite estar al tanto de las condiciones climáticas y tomar medidas adicionales si es necesario para proteger tu bicicleta.</p>
-        </div>
+<div class="container mx-auto px-4 py-8">
+  
+  <section id="obtener-aplicacion" class="mb-12 destacado">
+    <div class="bg-white rounded-lg shadow-md p-4 flex items-center relative">
+      <span class="step-number">1</span>
+              <img src="../../assets/obtener-app.png" alt="Obtener aplicación" class="w-full h-auto mr-4">
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Cómo obtener la aplicación</h3>
+        <p class="text-gray-700">Descubre cómo puedes obtener la aplicación Bike Carrier para empezar a disfrutar de todas sus funcionalidades.</p>
       </div>
     </div>
   </section>
+
+  <section id="registro" class="mb-12 destacado2">
+    <div class="bg-white rounded-lg shadow-md p-4 flex items-center relative">
+      <img src="../../assets/register.png" alt="Registro" class="w-32 h-32 mr-4">
+      <div>
+        <span class="step-number">2</span>
+        <h3 class="text-xl font-semibold mb-2">Registro de usuario</h3>
+        <p class="text-gray-700">Aprende cómo puedes registrarte en la aplicación para comenzar a usarla y aprovechar todas sus características.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="notificaciones" class="mb-12 destacado2">
+    <div class="bg-white rounded-lg shadow-md p-4 flex items-center relative">
+      <img src="../../assets/notificaciones.png" alt="Notificaciones" class="w-32 h-32 mr-4">
+      <div>
+        <span class="step-number">3</span>
+        <h3 class="text-xl font-semibold mb-2">Recepción de notificaciones</h3>
+        <p class="text-gray-700">Verás una confirmación cuando tu bicicleta quede correctamente anclada después de un viaje y advertencias en caso de robo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="temperatura" class="mb-12 destacado2">
+    <div class="bg-white rounded-lg shadow-md p-4 flex items-center relative">
+      <img src="../../assets/temperatura.png" alt="Temperatura" class="w-32 h-32 mr-4">
+      <div>
+        <span class="step-number">4</span>
+        <h3 class="text-xl font-semibold mb-2">Visualización de la temperatura</h3>
+        <p class="text-gray-700">Obtén información en tiempo real sobre la temperatura ambiente para proteger tu bicicleta de condiciones climáticas extremas.</p>
+      </div>
+    </div>
+  </section>
+
 </div>

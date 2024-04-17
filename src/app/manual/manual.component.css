@@ -1,0 +1,60 @@
+.destacado {
+    background-color: #f9fafb; /* Color de fondo */
+    border: 1px solid #e2e8f0; /* Borde */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    transition: transform 0.2s; /* Transición suave al pasar el cursor */
+  }
+  
+  .destacado:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
+  }
+  
+  .destacado img {
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  .destacado h3 {
+    font-size: 32px; /* Tamaño más grande del título */
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
+  }
+  
+  .step-number {
+    color: #E3E3E3;
+    font-family: "Source Sans Pro", Sans-serif;
+    font-size: 140px;
+    font-weight: 900;
+    line-height: 150.78px;
+    position: absolute;
+    top: 20%;
+    left: 50%; /* Ajusta la posición izquierda según sea necesario */
+    transform: translateY(-50%);
+  }
+  
+  
+  .destacado2 {
+    background-color: #f9fafb; /* Color de fondo */
+    border: 1px solid #e2e8f0; /* Borde */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    transition: transform 0.2s; /* Transición suave al pasar el cursor */
+  }
+  
+  .destacado2:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
+  }
+  
+  .destacado2 img {
+    border-radius: 8px; /* Bordes redondeados */
+    width: 50%; /* Ancho de la imagen */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+  }
+  
+  .destacado2 h3 {
+    font-size: 32px; /* Tamaño más grande del título */
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
+  }
