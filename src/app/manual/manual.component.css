@@ -1,59 +1,274 @@
 .destacado {
-    background-color: #f9fafb; /* Color de fondo */
-    border: 1px solid #e2e8f0; /* Borde */
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 20px; /* Espaciado interno */
-    transition: transform 0.2s; /* Transición suave al pasar el cursor */
-  }
-  
-  .destacado:hover {
-    transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
-  }
-  
-  .destacado img {
-    border-radius: 8px; /* Bordes redondeados */
-  }
-  
-  .destacado h3 {
-    font-size: 32px; /* Tamaño más grande del título */
-    font-weight: bold;
-    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
-  }
-  
+  background-color: orange;
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  transition: transform 0.2s; /* Transición suave al pasar el cursor */
+  width: 80%;
+  left: 10%;
+  position: relative;
+}
+
+.destacado:hover {
+  background-color: #E7560A;
+  transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
+}
+
+.destacado img {
+  border-radius: 8px; /* Bordes redondeados */
+  width: 25%; /* Ancho de la imagen */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Centrar la imagen horizontalmente */
+}
+
+.destacado h3 {
+  font-size: 32px; /* Tamaño más grande del título */
+  font-weight: bold;
+  margin-bottom: 10px; /* Espacio entre el título y el párrafo */
+}
+
+/* Estilos para la lista de detalles de temperatura */
+.registration-list {
+  list-style-type: disc; /* Tipo de viñeta */
+  margin-left: 24px; /* Espaciado izquierdo */
+}
+
+.registration-list p {
+  margin-top: 5px; /* Espacio entre el texto explicativo y el elemento anterior */
+  color: #666; /* Color del texto explicativo */
+  font-size: 24px; /* Tamaño de fuente para el texto explicativo */
+  text-align: justify;
+}
+
+/* Estilos para la lista de detalles de temperatura */
+.users-list {
+  list-style-type: disc; /* Tipo de viñeta */
+  margin-left: 24px; /* Espaciado izquierdo */
+}
+
+.user-list p {
+  margin-top: 5px; /* Espacio entre el texto explicativo y el elemento anterior */
+  color: #666; /* Color del texto explicativo */
+  font-size: 24px; /* Tamaño de fuente para el texto explicativo */
+}
+
+/* Estilos para la lista de detalles de temperatura */
+.notification-list {
+  list-style-type: disc; /* Tipo de viñeta */
+  margin-left: 24px; /* Espaciado izquierdo */
+}
+
+.notification-list p {
+  margin-top: 5px; /* Espacio entre el texto explicativo y el elemento anterior */
+  color: #666; /* Color del texto explicativo */
+  font-size: 14px; /* Tamaño de fuente para el texto explicativo */
+  text-align: justify;
+}
+
+/* Estilos para el título */
+.text-xl {
+  font-size: 24px; /* Tamaño del texto */
+  font-weight: 600; /* Grosor de la fuente */
+  margin-bottom: 16px; /* Espaciado inferior */
+}
+
+/* Estilos para el párrafo */
+.text-gray-700 {
+  color: #4b5563; /* Color del texto */
+  font-family: "Source Sans Pro", sans-serif; /* Fuente del texto */
+  text-align: justify;
+}
+
+/* Estilos para la lista de detalles de temperatura */
+.temperature-details {
+  list-style-type: disc; /* Tipo de viñeta */
+  margin-left: 24px; /* Espaciado izquierdo */
+}
+
+.temperature-details p {
+  margin-top: 5px; /* Espacio entre el texto explicativo y el elemento anterior */
+  color: #666; /* Color del texto explicativo */
+  font-size: 24px; /* Tamaño de fuente para el texto explicativo */
+  text-align: justify;
+}
+
   .step-number {
-    color: #E3E3E3;
+    color: #EF8544;
     font-family: "Source Sans Pro", Sans-serif;
     font-size: 140px;
     font-weight: 900;
     line-height: 150.78px;
     position: absolute;
-    top: 20%;
-    left: 50%; /* Ajusta la posición izquierda según sea necesario */
+    top: 15%;
+    left: 82%; /* Ajusta la posición izquierda según sea necesario */
+    transform: translateY(-50%);
+  }
+
+  .step-number2 {
+    color: #a8a6a6;
+    font-family: "Source Sans Pro", Sans-serif;
+    font-size: 140px;
+    font-weight: 900;
+    line-height: 150.78px;
+    position: absolute;
+    top: 15.5%;
+    left: 82%; /* Ajusta la posición izquierda según sea necesario */
+    transform: translateY(-50%);
+  }
+
+  .step-number3 {
+    color: #c1c1c1;
+    font-family: "Source Sans Pro", Sans-serif;
+    font-size: 75px;
+    font-weight: 900;
+    line-height: 150.78px;
+    position: absolute;
+    top: 19%;
+    left: 91%; /* Ajusta la posición izquierda según sea necesario */
     transform: translateY(-50%);
   }
   
-  
+  .step-number4 {
+    color: #7373e1;
+    font-family: "Source Sans Pro", Sans-serif;
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 150.78px;
+    position: absolute;
+    top: 13%;
+    left: 93%; /* Ajusta la posición izquierda según sea necesario */
+    transform: translateY(-50%);
+  }
+
+  .step-number5 {
+    color: #adadb5;
+    font-family: "Source Sans Pro", Sans-serif;
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 150.78px;
+    position: absolute;
+    top: 11%;
+    left: 90%; /* Ajusta la posición izquierda según sea necesario */
+    transform: translateY(-50%);
+  }
+
   .destacado2 {
-    background-color: #f9fafb; /* Color de fondo */
+    background-color: #b3b3b8; /* Color de fondo */
     border: 1px solid #e2e8f0; /* Borde */
     border-radius: 8px; /* Bordes redondeados */
     padding: 20px; /* Espaciado interno */
     transition: transform 0.2s; /* Transición suave al pasar el cursor */
+    width: 80%;
+    left: 10%;
+    position: relative;
   }
   
   .destacado2:hover {
     transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
+    background-color: #828282; /* Color de fondo */
   }
   
   .destacado2 img {
     border-radius: 8px; /* Bordes redondeados */
-    width: 50%; /* Ancho de la imagen */
+    width: 25%; /* Ancho de la imagen */
+    top: 20%;
     height: auto;
     display: block;
     margin: 0 auto; /* Centrar la imagen horizontalmente */
   }
   
   .destacado2 h3 {
+    font-size: 32px; /* Tamaño más grande del título */
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
+  }
+
+  .destacado3 {
+    background-color: #c1c1c9; /* Color de fondo */
+    border: 1px solid #e2e8f0; /* Borde */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    transition: transform 0.2s; /* Transición suave al pasar el cursor */
+    width: 80%;
+    left: 10%;
+    position: relative;
+  }
+  
+  .destacado3:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
+    background-color: #acacb1; /* Color de fondo */
+  }
+  
+  .destacado3 img {
+    border-radius: 8px; /* Bordes redondeados */
+    width: 35%; /* Ancho de la imagen */
+    top: 20%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+  }
+  
+  .destacado3 h3 {
+    font-size: 32px; /* Tamaño más grande del título */
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
+  }
+
+  .destacado4 {
+    background-color: #5d80e0; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    transition: transform 0.2s; /* Transición suave al pasar el cursor */
+    width: 80%;
+    left: 10%;
+    position: relative;
+  }
+  
+  .destacado4:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
+    background-color: #1e4ed7; /* Color de fondo */
+  }
+  
+  .destacado4 img {
+    border-radius: 8px; /* Bordes redondeados */
+    width: 50%; /* Ancho de la imagen */
+    top: 20%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+  }
+  
+  .destacado4 h3 {
+    font-size: 32px; /* Tamaño más grande del título */
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
+  }
+
+  .destacado5 {
+    background-color: #d0d0d0; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    transition: transform 0.2s; /* Transición suave al pasar el cursor */
+    width: 80%;
+    left: 10%;
+    position: relative;
+  }
+  
+  .destacado5:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
+    background-color: #8b8b8b; /* Color de fondo */
+  }
+  
+  .destacado5 img {
+    border-radius: 8px; /* Bordes redondeados */
+    width: 50%; /* Ancho de la imagen */
+    top: 20%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+  }
+  
+  .destacado5 h3 {
     font-size: 32px; /* Tamaño más grande del título */
     font-weight: bold;
     margin-bottom: 10px; /* Espacio entre el título y el párrafo */
