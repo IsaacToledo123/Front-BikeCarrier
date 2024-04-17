@@ -8,7 +8,7 @@ export class SocketService {
   private socket: any;
 
   constructor() {
-    this.socket = io('http://localhost:3000', { transports: ['websocket'], upgrade: false }); // Reemplaza con la URL de tu servidor WebSocket
+    this.socket = io('', { transports: ['websocket'], upgrade: false }); // Reemplaza con la URL de tu servidor WebSocket
   }
   getMessages(): Observable<any> {
     return new Observable(observer => {

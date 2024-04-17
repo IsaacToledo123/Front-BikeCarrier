@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SocketService } from './socket.service';
 
 @Component({
   selector: 'app-temperatura',
@@ -12,12 +11,10 @@ export class TemperaturaComponent {
   message: string = '';
   messages: string[] = [];
 
-  constructor(private webSocketService: SocketService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.webSocketService.getMessages().subscribe((message: string) => {
-      this.messages.push(message);
-    });
+ 
   }
 
 }
