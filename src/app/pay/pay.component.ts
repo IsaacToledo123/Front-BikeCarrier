@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicepayService } from './servicepay.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { log } from 'console';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pay',
@@ -11,47 +12,88 @@ import { log } from 'console';
   styleUrl: './pay.component.css'
 })
 export class PayComponent implements OnInit {
-  userData:any
+  userNombre:any
+  userEmail:any
+  userId:any 
   payForm: FormGroup;
+  userData: any;
+
   ngOnInit(): void {
-this.userData=this.getUser()
+  this.getUser()
+ 
   }
-  constructor(private servicio: ServicepayService, private fb: FormBuilder) {
+  constructor(private servicio: ServicepayService, private fb: FormBuilder, private router:Router) {
+    
     this.payForm = this.fb.group({
-      id:'',
+      id: '',
       concepto: new FormControl('', [Validators.required]),
-      cantidad: new FormControl('', [Validators.required]),
-      numerodetarjeta: new FormControl('', [Validators.required]),
-      personafisica:this.userData.nombre,
+      importe: new FormControl('', [Validators.required]),
+      ntarjeta: new FormControl('', [Validators.required]),
+      persona: localStorage.getItem('nombre'),
       telefono: new FormControl('', [Validators.required]),
-      correo: this.userData.email,
-      paquete: 1,
+      correo:'',
+      paquete:parseInt(localStorage.getItem('paquete') || '0', 10),
       cvv: new FormControl('', [Validators.required]),
-      fechadevencimiento:new FormControl('', [Validators.required]),
-      iduser:this.userData.id
+      Fvencimiento: new FormControl('', [Validators.required]),
+      iduser: localStorage.getItem('id')
     })
 
   }
-  onSubmit() {
+  OnSubmit() {
     if (this.payForm.valid) {
-      this.servicio.postPay(this.payForm.value).subscribe(res=>{
-        console.log(res);
-      })
-      
-    }
+      this.servicio.postPay(this.payForm.value).subscribe(
+          (res) => {
+              Swal.fire({
+                  icon: 'success',
+                  title: '¡Pago realizado!',
+                  text: 'El pago se ha procesado correctamente.',
+                  confirmButtonText: 'Aceptar'
+              }).then(() => {
+                  this.router.navigate(['/']);
+              });
+              localStorage.removeItem('nombre');
+              localStorage.removeItem('id');
+              localStorage.removeItem('correo');
+              localStorage.removeItem('paqute');
+
+          },
+          (error) => {
+              Swal.fire({
+                  icon: 'error',
+                  title: '¡Error!',
+                  text: 'Hubo un problema al procesar el pago.',
+                  confirmButtonText: 'Aceptar'
+              }).then(() => {
+                  this.router.navigate(['/']);
+              });
+          }
+      );
+  } else {
+      Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Por favor, complete todos los campos obligatorios.',
+          confirmButtonText: 'Aceptar'
+      });
   }
-  getUser():any{
+  }
+  getUser(): void {
     const user = localStorage.getItem('username');
     if (user !== null) {
-      this.servicio.getUser(user).subscribe((userData) => {
-        console.log(userData);
-        return userData;
+      this.servicio.getUser(user).subscribe(userData => {
+        this.userData=userData
+        console.log(this.userData.data[0].nombre);
+        
+        localStorage.setItem('correo', this.userData.data[0].email);
+        localStorage.setItem('nombre',this.userData.data[0].nombre);
+        localStorage.setItem('id',this.userData.data[0].id.toString());
+    
       });
     } else {
       console.error('El nombre de usuario almacenado en localStorage es nulo.');
     }
-  
+   
   }
-
+  
 
 }

@@ -9,23 +9,29 @@
     </div>
     <div class="grid grid-cols-3 text-center ">
       <div class=" p-10 text-white text-2xl ">
-        <h2>4</h2>
+        @if(lugar){
+          <h2>{{lugar}}</h2>
+        }@else {
+          <h2>Ninguno</h2>
+        }
+       
         <h1 class="font-semibold">
-          Ranking
+          Espacio
         </h1>
       </div>
       <div class=" p-10 text-white text-2xl ">
-        <h2>free</h2>
+        <h2>{{tode.plan}}</h2>
         <h1 class="font-semibold">
           Plan
         </h1>
       </div>
-      <div class=" p-10 text-white text-2xl ">
-        <h2>20</h2>
+      <div class="p-10 text-white text-2xl">
+        <h2>{{tode.saldo}}</h2>
         <h1 class="font-semibold">
-          Puntos
+          Tiempo
         </h1>
-      </div> 
+    </div>
+    
     </div>
   </div>
   <div class="flex">
@@ -70,14 +76,25 @@
         </div>
         <div
           class="shadow-lg p-6 bg-white flex flex-col items-center justify-center  border border-orange-500 rounded-xl border-b-4 hover:border-orange-300">
-          <a href="/historial">
+          
             <div class="w-40">
-              <i class="fas fa-history fa-5x"></i>
+              @if(lugar){
+                <button (click)="unLock()">
+                  <i class="fas fa-unlock fa-5x"></i>
+                </button>
+          
+              }@else{
+                <button>
+                  <i class="fas fa-ban fa-5x"></i>
+
+                </button>
+              }
+              
 
 
             </div>
-            <h1 class="text-2xl">historial</h1>
-          </a>
+            <h1 class="text-2xl">desbloquear</h1>
+       
         </div>
 
       </div>
@@ -85,13 +102,16 @@
     <div class="w-1/2 justify-center text-center flex flex-col  m-10">
       
       <div class="">
-        <ngx-scanner-qrcode #action="scanner"(data)="handleData($event)" (error)="onError($event)"></ngx-scanner-qrcode>
-        <p>{{output}}</p>
-        @if(action.isLoading){
+        <ngx-scanner-qrcode #action="scanner" (event)="handleData($event,action)" (error)="onError($event)"></ngx-scanner-qrcode>
+        
+        @if(action.isLoading ){
         <p>loading...</p>
         }
+        @if (output) {
+          <h1>hola</h1>
+        }
         
-        <button (click)="action.isStart ? action.stop() : action.start()">{{action.isStart ? 'Stop' : 'Start'}}</button>
+        <button class="m-5 p-2 border border-b-8 rounded-md border-orange-500 "  (click)="action.isStart ? action.stop() : action.start()">{{action.isStart ? 'Stop' : 'Start'}}</button>
       </div>
     
     </div>

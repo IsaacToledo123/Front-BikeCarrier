@@ -1,7 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { Router } from '@angular/router';
-import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import {
+  ScannerQRCodeConfig,
+  ScannerQRCodeResult,
+  NgxScannerQrcodeService,
+  NgxScannerQrcodeComponent,
+  ScannerQRCodeSelectedFiles,
+  NgxScannerQrcodeModule,
+} from 'ngx-scanner-qrcode';
 import { LoginService } from '../../components/page/login/login.service';
 import { log } from 'console';
 
@@ -14,14 +21,26 @@ import { log } from 'console';
 })
 
 export class ProductComponent implements OnInit {
+unLock() {
+throw new Error('Method not implemented.');
+}
   output: string = '';
+  lugar:any
   userData: any
   userPhoto: any
+  plan: any
+ tode:any
 
-  handleData(event: any): string {
 
-    this.output = event.data.toString();
-    return this.output
+   public handleData(e: ScannerQRCodeResult[], action?: any): void {
+    if (e[0].value==='Lugar 1') {
+     this.productSrvices.disparadorDeLugar.emit({
+      data:e[0].value
+
+     })
+     this.router.navigate(['/logLugar'])
+    }
+    
   }
 
   onError(error: any) {
@@ -30,9 +49,30 @@ export class ProductComponent implements OnInit {
 
   constructor(private router: Router, private productSrvices: LoginService) { }
   ngOnInit(): void {
-    this.getUser()
-    this.userData = localStorage.getItem('username')
-    this.userPhoto =localStorage.getItem('photo')
+    if (typeof localStorage !== 'undefined') {
+      this.getUser();
+      this.userData = localStorage.getItem('username');
+      this.userPhoto = localStorage.getItem('photo');
+      if (this.userData !== null) {
+        this.productSrvices.getUser(this.userData).subscribe((userData) => {
+     
+          const jsonData = JSON.stringify(userData.data);
+          const parsedData = JSON.parse(jsonData);
+          if (Array.isArray(parsedData) && parsedData.length > 0) {
+              this.tode=parsedData[0]
+          }
+        });
+      } else {
+        console.error('El nombre de usuario almacenado en localStorage es nulo.');
+      }
+  } else {
+      console.warn('localStorage is not available in this environment');
+  }
+  const storedLugar = localStorage.getItem('lugar');
+    if (storedLugar !== null) {
+      this.lugar = storedLugar;
+    }
+
   }
 
   getUser(): void {
@@ -43,7 +83,14 @@ export class ProductComponent implements OnInit {
       localStorage.setItem("photo", this.userData.charAt(0).toUpperCase())
       this.userPhoto = this.userData.charAt(0).toUpperCase()
     })
+
+    const user = localStorage.getItem('username');
+    console.log(user);
+    
+   
+  
   }
+ 
 
 
 }

@@ -11,8 +11,10 @@ import { HistorialComponent } from './components/servicios/historial/historial.c
 import { RecuPassComponent } from './components/servicios/recu-pass/recu-pass.component';
 import { ManualComponent } from './manual/manual.component';
 import { PayComponent } from './pay/pay.component';
+import { LogLugarComponent } from './log-lugar/log-lugar.component';
 export const routes: Routes = [
-    { path: 'pay', component: PayComponent }, 
+    { path: 'logLugar', component: LogLugarComponent }, 
+    { path: 'payLoad', component: PayComponent }, 
     { path: 'recuperarContraseña', component: RecuPassComponent }, 
     { path: 'manual', component: ManualComponent }, 
     { path: 'historial', component:HistorialComponent  },

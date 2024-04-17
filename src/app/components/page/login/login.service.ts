@@ -12,6 +12,9 @@ export class LoginService {
 
 @Input() disparadorDeUsuario:EventEmitter<any>=new EventEmitter()
 
+
+@Input() disparadorDeLugar:EventEmitter<any>=new EventEmitter()
+
   constructor(private http:HttpClient) { }
 postLogin(user:UserLog): Observable<ApiResponse<UserLog>>{
   return  this.http.post<ApiResponse<UserLog>>('http://localhost:3000/user/login',user)
@@ -19,6 +22,9 @@ postLogin(user:UserLog): Observable<ApiResponse<UserLog>>{
 newPassword(user:UserPass): Observable<ApiResponse<UserPass>>{  
   return this.http.put<ApiResponse<UserPass>>(`http://localhost:3000/user/newPass`,user)
 }
+getUser(user:string):Observable<ApiResponse<User>>{
+  return this.http.get<ApiResponse<User>>(`http://localhost:3000/user/${user}`)
+ }
 
 }
  

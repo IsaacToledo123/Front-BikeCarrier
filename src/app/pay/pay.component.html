@@ -1,21 +1,22 @@
 <div class="flex justify-center items-center h-screen">
     <div class="max-w-lg mx-auto">
-        <form [formGroup]="payForm" (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8  mb-4">
+        <form [formGroup]="payForm" (ngSubmit)="OnSubmit()"  class="bg-white shadow-md rounded px-8 pt-6 pb-8  mb-4">
+            
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="card-number">
-                    Nombre
+                    concepto
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="nombre" type="text" placeholder="Nombre">
+                    id="nombre" type="text" placeholder="concepto" formControlName="concepto">
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="card-number">
-                    Plan
+                    cantidad
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="nombre" type="text" placeholder="Nombre">
+                    id="nombre" type="number" placeholder="cantidad" formControlName="importe">
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="card-number">
@@ -23,15 +24,15 @@
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="card-number" type="text" placeholder="Número de tarjeta">
+                    id="card-number" type="text" placeholder="Número de tarjeta" formControlName="ntarjeta">
             </div>
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="expiration-date">
-                    Fecha de vencimiento
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="card-number">
+                    Telefono
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="expiration-date" type="text" placeholder="MM/AA">
+                    id="nombre" type="number" placeholder="Telefono" formControlName="telefono">
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="cvv">
@@ -39,12 +40,21 @@
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="cvv" type="text" placeholder="CVV">
+                    id="cvv" type="text" placeholder="CVV" formControlName="cvv">
             </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="expiration-date">
+                    Fecha de vencimiento
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="expiration-date" type="date" placeholder="MM/AA" formControlName="Fvencimiento">
+            </div>
+           
             <div class="flex items-center justify-between">
                 <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    type="button">
+                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
                     Pagar
                 </button>
             </div>

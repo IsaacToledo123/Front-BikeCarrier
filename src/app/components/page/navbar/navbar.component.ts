@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
-  constructor(private router:Router){}
-salir() {
-  localStorage.clear()
-  this.router.navigate(['/login']);
+  constructor(private router: Router) { }
+  salir() {
+    localStorage.clear()
+    this.router.navigate(['/login']);
 
-}
+  }
 
 }

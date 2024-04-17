@@ -11,9 +11,10 @@ export const appConfig: ApplicationConfig = {
 
   importProvidersFrom(
     HttpClientModule,
+  
     
   ),
-  provideHttpClient(withFetch(),withInterceptors([authInterceptor]))
+  provideHttpClient(withFetch(),withInterceptors([authInterceptor])),
  
 
   ]

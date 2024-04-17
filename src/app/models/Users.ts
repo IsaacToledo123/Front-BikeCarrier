@@ -1,4 +1,7 @@
+import { Time } from "@angular/common";
+
 export interface User{
+    length: number;
     id?:string;
     nombre:string;
     apellidoP:string;
@@ -6,20 +9,21 @@ export interface User{
     email:string;
     username:string;
     password:string;
-    plan:string;
+    plan:number;
+    duracion:Time
 }
 export interface Pay{
-    id?:string;
-    concepto:string;
-    cantidad:number;
-    numerodetarjeta:number;
-    personafisca:string;
-    telefono:number;
-    correo:string;
-    paquete:number;
-    cvv:number;
-    fechadevencimiento:Date;
-    iduser:string;
+    id?: string;
+    concepto: string;
+    importe: number;
+    ntarjeta: number;
+    persona: string;
+    telefono: number;
+    correo: string;
+    paquete: number;
+    cvv: number;
+    Fvencimiento: Date;
+    iduser: string
 }
 export interface ApiResponse<T>{
     message?: string,
