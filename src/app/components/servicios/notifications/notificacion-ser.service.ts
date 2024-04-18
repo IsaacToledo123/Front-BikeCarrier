@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { io } from 'socket.io-client';
 import { Observable } from 'rxjs';
+import { io } from 'socket.io-client';
+
 @Injectable({
   providedIn: 'root'
 })
-export class SocketService {
+export class NotificacionSerService {
+
   private socket: any;
 
   constructor() {
-    this.socket = io('', { transports: ['websocket'], upgrade: false }); // Reemplaza con la URL de tu servidor WebSocket
+    this.socket = io('', { transports: ['websocket'], upgrade: false }); 
   }
   getMessages(): Observable<any> {
     return new Observable(observer => {

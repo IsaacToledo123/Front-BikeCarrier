@@ -26,6 +26,7 @@
     "@zxing/browser": "^0.1.4",
     "@zxing/library": "^0.20.0",
     "@zxing/ngx-scanner": "^17.0.1",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "ngx-scanner-qrcode": "^1.6.9",
     "pdfmake": "^0.2.10",

@@ -12,7 +12,7 @@ export class UserServiceService {
     
    }
    updateUser(user:UserPass){
-    return this.http.put<ApiResponse<UserPass>>(` http://localhost:3000/user/newPass`,user)
+    return this.http.put<ApiResponse<UserPass>>(` http://34.232.166.125/user/newPass`,user)
   }
 }
  

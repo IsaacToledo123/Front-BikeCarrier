@@ -10,6 +10,6 @@ export class RecupassService {
 
   constructor(private http:HttpClient) {}
   PutPass(user:recuUser):Observable<ApiResponse<recuUser>>{
-    return this.http.put<ApiResponse<recuUser>>('http://localhost:3000/user/recuPass',user)
+    return this.http.put<ApiResponse<recuUser>>('http://34.232.166.125/user/recuPass',user)
   }
 }

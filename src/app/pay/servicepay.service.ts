@@ -11,9 +11,9 @@ export class ServicepayService {
 
   constructor(private http: HttpClient) {}
   getUser(user:string):Observable<ApiResponse<User>>{
-    return this.http.get<ApiResponse<User>>(`http://localhost:3000/user/${user}`)
+    return this.http.get<ApiResponse<User>>(`http://34.232.166.125/user/${user}`)
    }
    postPay(pay:Pay): Observable<ApiResponse<Pay>>{
-    return  this.http.post<ApiResponse<Pay>>('http://localhost:3000/user/pay',pay)
+    return  this.http.post<ApiResponse<Pay>>('http://34.232.166.125/user/pay',pay)
   }
 }

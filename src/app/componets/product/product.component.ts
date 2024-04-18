@@ -22,7 +22,9 @@ import { log } from 'console';
 
 export class ProductComponent implements OnInit {
 unLock() {
-throw new Error('Method not implemented.');
+this.productSrvices.posttButton(1).subscribe(data=>{
+console.log(data);
+})
 }
   output: string = '';
   lugar:any

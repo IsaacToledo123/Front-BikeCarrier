@@ -16,11 +16,11 @@ export class RequestService {
 
 
   getAllUser(): Observable<ApiResponse<User[]>>{
-    return this.http.get<ApiResponse<User[]>>('https://api-principal-multidiciplinaria.onrender.com/user/')
+    return this.http.get<ApiResponse<User[]>>('http://34.232.166.125/user')
 
   }
   getUser(id:string): Observable<ApiResponse<User>>{  
-    return this.http.get<ApiResponse<User>>(`https://api-principal-multidiciplinaria.onrender.com/user/${id}`)
+    return this.http.get<ApiResponse<User>>(`http://34.232.166.125/user/${id}`)
   }
   createUser(user:User): Observable<ApiResponse<User>>{
     
@@ -28,9 +28,9 @@ export class RequestService {
     
   }
   updateUser(id:string,user:User){
-    return this.http.put<ApiResponse<User>>(`https://api-principal-multidiciplinaria.onrender.com/user/${id}`,user)
+    return this.http.put<ApiResponse<User>>(`http://34.232.166.125/user/${id}`,user)
   }
   deleteUser(id:string): Observable<any>{
-    return this.http.delete<ApiResponse<User>>(`https://api-principal-multidiciplinaria.onrender.com/user/${id}`)
+    return this.http.delete<ApiResponse<User>>(`http://34.232.166.125/user/${id}`)
   }
 }

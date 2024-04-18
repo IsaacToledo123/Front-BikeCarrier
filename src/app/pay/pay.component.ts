@@ -41,6 +41,8 @@ export class PayComponent implements OnInit {
   }
   OnSubmit() {
     if (this.payForm.valid) {
+      console.log(this.payForm.value);
+      
       this.servicio.postPay(this.payForm.value).subscribe(
           (res) => {
               Swal.fire({
@@ -53,8 +55,7 @@ export class PayComponent implements OnInit {
               });
               localStorage.removeItem('nombre');
               localStorage.removeItem('id');
-              localStorage.removeItem('correo');
-              localStorage.removeItem('paqute');
+          
 
           },
           (error) => {
@@ -83,8 +84,6 @@ export class PayComponent implements OnInit {
       this.servicio.getUser(user).subscribe(userData => {
         this.userData=userData
         console.log(this.userData.data[0].nombre);
-        
-        localStorage.setItem('correo', this.userData.data[0].email);
         localStorage.setItem('nombre',this.userData.data[0].nombre);
         localStorage.setItem('id',this.userData.data[0].id.toString());
     

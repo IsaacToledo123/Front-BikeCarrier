@@ -9,6 +9,6 @@ export class RequestService {
 
   constructor(private http:HttpClient) {}
    getUser(id:string): Observable<ApiResponse<UserLog>>{  
-    return this.http.get<ApiResponse<UserLog>>(`http://localhost:3000/user/login${id}`)
+    return this.http.get<ApiResponse<UserLog>>(`http://34.232.166.125/user/login${id}`)
   }
 }
