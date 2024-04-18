@@ -24,7 +24,7 @@ export class RequestService {
   }
   createUser(user:User): Observable<ApiResponse<User>>{
     
-    return this.http.post<ApiResponse<User>>('http://localhost:3000/user/',user)
+    return this.http.post<ApiResponse<User>>('http://34.232.166.125/user/',user)
     
   }
   updateUser(id:string,user:User){

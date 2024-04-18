@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  userData:any
 
   constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -28,6 +29,11 @@ export class LoginComponent {
           console.log(res.data);
         
           localStorage.setItem("token", res.data.token);
+       
+            console.log(`username :${res.data.user.username}`);
+            localStorage.setItem("username", res.data.user.username)
+            this.userData =res.data.user.username
+            localStorage.setItem("photo", this.userData.charAt(0).toUpperCase())   
           this.loginService.disparadorDeUsuario.emit({
             data: res.data.user.username
           });

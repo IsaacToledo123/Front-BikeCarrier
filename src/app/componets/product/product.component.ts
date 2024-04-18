@@ -52,7 +52,7 @@ console.log(data);
   constructor(private router: Router, private productSrvices: LoginService) { }
   ngOnInit(): void {
     if (typeof localStorage !== 'undefined') {
-      this.getUser();
+     
       this.userData = localStorage.getItem('username');
       this.userPhoto = localStorage.getItem('photo');
       if (this.userData !== null) {
@@ -77,21 +77,7 @@ console.log(data);
 
   }
 
-  getUser(): void {
-    this.productSrvices.disparadorDeUsuario.subscribe(data => {
-      console.log(`username :${data.data}`);
-      localStorage.setItem("username", data.data)
-      this.userData = data.data
-      localStorage.setItem("photo", this.userData.charAt(0).toUpperCase())
-      this.userPhoto = this.userData.charAt(0).toUpperCase()
-    })
-
-    const user = localStorage.getItem('username');
-    console.log(user);
-    
-   
-  
-  }
+ 
  
 
 
