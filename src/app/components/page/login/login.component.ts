@@ -43,7 +43,7 @@ export class LoginComponent {
             text: 'Bienvenido de vuelta, ' + res.data.user.username + '!',
           }).then((result) => {
             if (result.isConfirmed || result.isDismissed) {
-              this.router.navigate(['/']); 
+              this.router.navigate(['/home']); 
             }
           });
         },

@@ -27,7 +27,7 @@ export class UserComponent implements OnInit {
     this.userPhot = localStorage.getItem('photo')
   }
   cambiarRuta() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
   OnSubmit($event: any) {
     this.servicio.newPassword(this.userForm.value).subscribe(res => {
@@ -37,7 +37,7 @@ export class UserComponent implements OnInit {
         title: 'Nueva contraseña enviada',
         text: '¡Se ha enviado la nueva contraseña con éxito!',
       }).then((result) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       });
     });
   }

@@ -14,7 +14,7 @@ export class NavbarComponent {
   constructor(private router: Router) { }
   salir() {
     localStorage.clear()
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
 
   }
 

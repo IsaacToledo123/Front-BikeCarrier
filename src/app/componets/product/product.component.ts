@@ -21,28 +21,28 @@ import { log } from 'console';
 })
 
 export class ProductComponent implements OnInit {
-unLock() {
-this.productSrvices.posttButton(1).subscribe(data=>{
-console.log(data);
-})
-}
+  unLock() {
+    this.productSrvices.posttButton(1).subscribe(data => {
+      console.log(data);
+    })
+  }
   output: string = '';
-  lugar:any
+  lugar: any
   userData: any
   userPhoto: any
   plan: any
- tode:any
+  tode: any
 
 
-   public handleData(e: ScannerQRCodeResult[], action?: any): void {
-    if (e[0].value==='Lugar 1') {
-     this.productSrvices.disparadorDeLugar.emit({
-      data:e[0].value
+  public handleData(e: ScannerQRCodeResult[], action?: any): void {
+    if (e[0].value === 'Lugar 1') {
+      this.productSrvices.disparadorDeLugar.emit({
+        data: e[0].value
 
-     })
-     this.router.navigate(['/logLugar'])
+      })
+      this.router.navigate(['/logLugar'])
     }
-    
+
   }
 
   onError(error: any) {
@@ -52,33 +52,33 @@ console.log(data);
   constructor(private router: Router, private productSrvices: LoginService) { }
   ngOnInit(): void {
     if (typeof localStorage !== 'undefined') {
-     
+
       this.userData = localStorage.getItem('username');
       this.userPhoto = localStorage.getItem('photo');
       if (this.userData !== null) {
         this.productSrvices.getUser(this.userData).subscribe((userData) => {
-     
+
           const jsonData = JSON.stringify(userData.data);
           const parsedData = JSON.parse(jsonData);
           if (Array.isArray(parsedData) && parsedData.length > 0) {
-              this.tode=parsedData[0]
+            this.tode = parsedData[0]
           }
         });
       } else {
         console.error('El nombre de usuario almacenado en localStorage es nulo.');
       }
-  } else {
+    } else {
       console.warn('localStorage is not available in this environment');
-  }
-  const storedLugar = localStorage.getItem('lugar');
+    }
+    const storedLugar = localStorage.getItem('lugar');
     if (storedLugar !== null) {
       this.lugar = storedLugar;
     }
 
   }
 
- 
- 
+
+
 
 
 }

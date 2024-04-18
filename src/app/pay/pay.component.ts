@@ -51,7 +51,7 @@ export class PayComponent implements OnInit {
                   text: 'El pago se ha procesado correctamente.',
                   confirmButtonText: 'Aceptar'
               }).then(() => {
-                  this.router.navigate(['/']);
+                  this.router.navigate(['/home']);
               });
               localStorage.removeItem('nombre');
               localStorage.removeItem('id');
