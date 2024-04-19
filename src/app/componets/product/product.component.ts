@@ -44,18 +44,19 @@ export class ProductComponent implements OnInit {
       });
     });
   }
-  
+
   output: string = '';
   lugar: any
   userData: any
   userPhoto: any
   plan: any
+  fecha: any
   tode: any
 
 
   public handleData(e: ScannerQRCodeResult[], action?: any): void {
     if (e[0].value === 'Lugar 1') {
-     localStorage.setItem('lugar',e[0].value)
+      localStorage.setItem('lugar', e[0].value)
       this.router.navigate(['/logLugar'])
     }
 
@@ -74,13 +75,25 @@ export class ProductComponent implements OnInit {
       this.userPhoto = localStorage.getItem('photo');
       if (this.userData !== null) {
         this.productSrvices.getUser(this.userData).subscribe((userData) => {
-
           const jsonData = JSON.stringify(userData.data);
           const parsedData = JSON.parse(jsonData);
           if (Array.isArray(parsedData) && parsedData.length > 0) {
-            this.tode = parsedData[0]
+              this.tode = parsedData[0];
+      
+              // Obtén el objeto time 'saldo'
+              let saldo = this.tode.saldo;
+              
+              // Extrae horas, minutos y segundos de 'saldo' utilizando sus métodos específicos
+              let horas = saldo.getHours();
+              let minutos = saldo.getMinutes();
+              let segundos = saldo.getSeconds();
+              let totalHoras = horas + minutos / 60 + segundos / 3600;
+              let dias = totalHoras / 24;
+              this.fecha = dias;
+              console.log('Horas totales:', totalHoras);
+              console.log('Días:', dias);
           }
-        });
+      });
       } else {
         console.error('El nombre de usuario almacenado en localStorage es nulo.');
       }

@@ -1,10 +1,10 @@
 <div class="bg-gray-100 h-screen flex justify-center items-center">
- 
+
   <div class="w-3/4">
     <div class="text-center">
       <h1 class="text-3xl font-bold text-gray-800 mb-6">Notificaciones</h1>
     </div>
-@for (item of notificaciones; track $index) {
+    @for (item of notificaciones; track $index) {
     <!-- Temperatura -->
     @if (item.codigo === 2) {
 
@@ -13,17 +13,17 @@
         <h2 class="text-lg font-semibold text-gray-800 mb-2">Alerta de Moviento</h2>
         <div class="flex items-center justify-between">
           <div class="flex items-center">
-            <i class="fas fa-thermometer-half text-orange-500 text-3xl mr-3"></i>
+            <i class="fas fa-user-secret text-orange-500 text-3xl mr-3"></i>
             <div>
               <p class="text-gray-800 font-semibold">{{item.message}}</p>
               <p class="text-gray-600">Alguien esta moviendo tu bicicleta</p>
             </div>
           </div>
-          <p class="text-gray-600">Hace 15 minutos</p>
+          <p class="text-gray-600">{{item.timestamp}}</p>
         </div>
       </div>
     </div>
-  }
+    }
 
 
     <!-- Seguridad -->
@@ -39,11 +39,11 @@
               <p class="text-gray-600">Alguien está intentando mover tu bicicleta.</p>
             </div>
           </div>
-          <p class="text-gray-600">Hace 1 minutos</p>
+          <p class="text-gray-600">{{item.timestamp}}</p>
         </div>
       </div>
     </div>
-  }
-}
+    }
+    }
   </div>
 </div>
