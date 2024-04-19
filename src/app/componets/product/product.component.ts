@@ -32,7 +32,7 @@ export class ProductComponent implements OnInit {
         icon: 'success',
         confirmButtonText: 'Ok'
       }).then(() => {
-        this.lugar = null; 
+        localStorage.removeItem('lugar')
       });
     }, error => {
       console.error('Error:', error);
@@ -55,10 +55,7 @@ export class ProductComponent implements OnInit {
 
   public handleData(e: ScannerQRCodeResult[], action?: any): void {
     if (e[0].value === 'Lugar 1') {
-      this.productSrvices.disparadorDeLugar.emit({
-        data: e[0].value
-
-      })
+     localStorage.setItem('lugar',e[0].value)
       this.router.navigate(['/logLugar'])
     }
 

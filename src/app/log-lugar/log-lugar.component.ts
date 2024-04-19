@@ -18,13 +18,11 @@ export class LogLugarComponent implements OnInit {
   constructor(private fb: FormBuilder, private servicio: LoginService ,private router : Router) {
     this.loginForm = this.fb.group({
       nombre: this.name,
-
       password: new FormControl('', [Validators.required])
     })
 
   }
   ngOnInit(): void {
-    this.getLugar()
 
     const storedName = localStorage.getItem('username');
     if (storedName !== null) {
@@ -34,24 +32,18 @@ export class LogLugarComponent implements OnInit {
 
   }
 
-  getLugar(): void {
-    this.servicio.disparadorDeLugar.subscribe(data => {
-      localStorage.setItem('lugar',data.data)
-    });
-  }
+
   onSubmit() {
     const storedLugar = localStorage.getItem('lugar');
     if (storedLugar !== null) {
       this.lugar = storedLugar;
-      // Show SweetAlert
       Swal.fire({
         icon: 'success',
         title: 'Éxito',
         text: `Lugar: ${this.lugar} ocupado`
       }).then((result) => {
-        // Redirect to main page if user clicks OK
         if (result.isConfirmed) {
-          this.router.navigate(['/home']); // Navigate to the main page
+          this.router.navigate(['/home']); 
         }
       });
     }
