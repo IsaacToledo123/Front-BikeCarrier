@@ -43,7 +43,7 @@ export class RegistroComponent {
           title: 'Inicio de sesión exitoso',
           text: '¡Bienvenido!',
         }).then((result) => {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/']);
         });
       });
     } else {
