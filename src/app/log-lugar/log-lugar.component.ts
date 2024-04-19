@@ -51,7 +51,7 @@ export class LogLugarComponent implements OnInit {
       }).then((result) => {
         // Redirect to main page if user clicks OK
         if (result.isConfirmed) {
-          this.router.navigate(['/']); // Navigate to the main page
+          this.router.navigate(['/home']); // Navigate to the main page
         }
       });
     }

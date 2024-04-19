@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import io from 'socket.io-client';
 const socket = io('http://3.227.76.3/');
 interface Notificacion {
@@ -14,18 +15,33 @@ interface Notificacion {
 export class NotificationsComponent implements OnInit {
   notificaciones: Notificacion[] = [];
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  private subscription: Subscription | undefined;
 
-  ngOnInit(): void {
-    try {
-      socket.on('notification-alert', (data: Notificacion) => {
-        console.log(data);
-        this.notificaciones.push(data);
-    
-        this.cdr.detectChanges();
-      });
-    } catch (error) {
-      console.error('Error:', error);
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
+
+  ngOnInit(): void {
+    this.subscription = this.getMessages().subscribe((message) => {
+   this.notificaciones.unshift(message)
+      console.log(message.message);
+      this.changeDetectorRef.detectChanges();
+  });
+   
+}
+public getMessages(): Observable<any> {
+  return new Observable<any>((observer) => {
+    socket.on('notification-alert', (message: string) => {
+      observer.next(message);
+    });
+
+    return () => {
+      socket.off('notification-alert');
+    };
+  });
+}
+
 }
