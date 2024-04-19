@@ -1,19 +1,31 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
+import io from 'socket.io-client';
+const socket = io('http://3.227.76.3/');
 interface Notificacion {
-  id: number;
-  titulo: string;
-  contenido: string;
+  codigo:number
+  message:string;
 }
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.css'
 })
-export class NotificationsComponent {
-  notificaciones: Notificacion[] = [
-    { id: 1, titulo: 'Notificación 1', contenido: 'Contenido de la notificación 1' },
-    { id: 2, titulo: 'Notificación 2', contenido: 'Contenido de la notificación 2' },
-    { id: 3, titulo: 'Notificación 3', contenido: 'Contenido de la notificación 3' }
-  ];
+export class NotificationsComponent implements OnInit {
+  notificaciones: Notificacion[] = [];
+
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngOnInit(): void {
+    try {
+      socket.on('notification-alert', (data: Notificacion) => {
+        console.log(data);
+        this.notificaciones.push(data);
+    
+        this.cdr.detectChanges();
+      });
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
 }

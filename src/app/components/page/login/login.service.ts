@@ -26,7 +26,7 @@ getUser(user:string):Observable<ApiResponse<User>>{
   return this.http.get<ApiResponse<User>>(`http://34.232.166.125/user/${user}`)
  }
  posttButton(user:number): Observable<any>{
-  return  this.http.post('http://34.232.166.125/user/login',user)
+  return  this.http.post('http://34.232.166.125/user/off',user)
 }
 }
  

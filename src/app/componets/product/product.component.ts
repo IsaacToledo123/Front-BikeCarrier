@@ -11,7 +11,9 @@ import {
 } from 'ngx-scanner-qrcode';
 import { LoginService } from '../../components/page/login/login.service';
 import { log } from 'console';
-
+import io from 'socket.io-client';
+import Swal from 'sweetalert2';
+const socket = io('http://3.227.76.3/');
 @Component({
   selector: 'app-product',
   standalone: true,
@@ -24,8 +26,25 @@ export class ProductComponent implements OnInit {
   unLock() {
     this.productSrvices.posttButton(1).subscribe(data => {
       console.log(data);
-    })
+      Swal.fire({
+        title: 'Éxito!',
+        text: 'La operación se ha completado correctamente.',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      }).then(() => {
+        this.lugar = null; 
+      });
+    }, error => {
+      console.error('Error:', error);
+      Swal.fire({
+        title: 'Error!',
+        text: 'Hubo un error al procesar la solicitud.',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      });
+    });
   }
+  
   output: string = '';
   lugar: any
   userData: any
@@ -51,6 +70,7 @@ export class ProductComponent implements OnInit {
 
   constructor(private router: Router, private productSrvices: LoginService) { }
   ngOnInit(): void {
+
     if (typeof localStorage !== 'undefined') {
 
       this.userData = localStorage.getItem('username');
