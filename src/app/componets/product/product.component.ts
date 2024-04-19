@@ -79,19 +79,19 @@ export class ProductComponent implements OnInit {
           const parsedData = JSON.parse(jsonData);
           if (Array.isArray(parsedData) && parsedData.length > 0) {
               this.tode = parsedData[0];
-      
-              // Obtén el objeto time 'saldo'
               let saldo = this.tode.saldo;
+              let tiempo = saldo.split(':');
+              let horas = parseInt(tiempo[0]); 
+              let minutos = parseInt(tiempo[1]); 
+              let segundos = parseInt(tiempo[2]);
               
-              // Extrae horas, minutos y segundos de 'saldo' utilizando sus métodos específicos
-              let horas = saldo.getHours();
-              let minutos = saldo.getMinutes();
-              let segundos = saldo.getSeconds();
               let totalHoras = horas + minutos / 60 + segundos / 3600;
               let dias = totalHoras / 24;
-              this.fecha = dias;
-              console.log('Horas totales:', totalHoras);
-              console.log('Días:', dias);
+              this.fecha = Math.floor(dias);
+              
+              console.log('Horas totales:', horas);
+              console.log('Días:', this.fecha);
+              
           }
       });
       } else {
