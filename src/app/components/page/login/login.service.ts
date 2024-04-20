@@ -17,16 +17,16 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 postLogin(user:UserLog): Observable<ApiResponse<UserLog>>{
-  return  this.http.post<ApiResponse<UserLog>>('http://34.232.166.125/user/login',user)
+  return  this.http.post<ApiResponse<UserLog>>('http://localhost:3000/user/login',user)
 }
 newPassword(user:UserPass): Observable<ApiResponse<UserPass>>{  
-  return this.http.put<ApiResponse<UserPass>>(`http://34.232.166.125/user/newPass`,user)
+  return this.http.put<ApiResponse<UserPass>>(`http://localhost:3000/user/newPass`,user)
 }
 getUser(user:string):Observable<ApiResponse<User>>{
-  return this.http.get<ApiResponse<User>>(`http://34.232.166.125/user/${user}`)
+  return this.http.get<ApiResponse<User>>(`http://localhost:3000/user/${user}`)
  }
  posttButton(user:number): Observable<any>{
-  return  this.http.post('http://34.232.166.125/user/login',user)
+  return  this.http.post('http://localhost:3000/user/login',user)
 }
 }
  
