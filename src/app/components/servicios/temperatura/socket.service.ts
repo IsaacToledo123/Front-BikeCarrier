@@ -1,32 +1,38 @@
 import { Injectable } from '@angular/core';
-import io from 'socket.io-client';
-import { Observable } from 'rxjs';
+import { Socket } from 'ngx-socket-io';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocketService {
-  private socket: any;
+  private socket: Socket | null = null;
 
-  constructor() {
-    this.socket = io('http://localhost:3005');
+  constructor() { }
+
+  iniciarSocket() {
+    if (!this.socket) {
+      this.socket = new Socket({
+        url: 'http://3.227.76.3/',
+        options: {
+          query: {
+            nameRoom: 'temperatura'
+          }
+        }
+      });
+    }
   }
 
-  public onTemperature(): Observable<any> {
-    return new Observable<any>(observer => {
-      this.socket.on('temperatura', (data: any) => observer.next(data));
-    });
+  desconectarSocket() {
+    if (this.socket) {
+      this.socket.disconnect();
+      this.socket = null;
+    }
   }
 
-  public onNotificationAlert(): Observable<any> {
-    return new Observable<any>(observer => {
-      this.socket.on('notification-alert', (data: any) => observer.next(data));
-    });
-  }
-
-  public onAlerta(): Observable<any> {
-    return new Observable<any>(observer => {
-      this.socket.on('alerta', (data: any) => observer.next(data));
-    });
+  obtenerSocket(): Socket {
+    if (!this.socket) {
+      throw new Error('Socket no inicializado. Debes llamar a iniciarSocket() primero.');
+    }
+    return this.socket;
   }
 }

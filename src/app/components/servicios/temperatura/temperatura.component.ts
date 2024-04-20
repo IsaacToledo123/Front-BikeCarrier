@@ -1,6 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Socket, io } from 'socket.io-client';
-import { SocketService } from './socket.service';
+import { Observable, Subscription } from 'rxjs';
+import { ChangeDetectorRef } from '@angular/core';
+
+
+import io from 'socket.io-client';
+const socket = io('http://3.227.76.3/');
+
 @Component({
   selector: 'app-temperatura',
   standalone: true,
@@ -8,22 +13,42 @@ import { SocketService } from './socket.service';
   templateUrl: './temperatura.component.html',
   styleUrl: './temperatura.component.css'
 })
-export class TemperaturaComponent implements OnInit {
-  constructor(private socketService: SocketService) {}
+export class TemperaturaComponent implements OnInit, OnDestroy {
+  public temp: any;
+  public humedad: any;
+  public tempF: any;
 
-  ngOnInit(): void {
-    this.socketService.onTemperature().subscribe(data => {
-      console.log('Temperature data received:', data);
-    });
+  
+  private subscription: Subscription | undefined;
 
-    this.socketService.onNotificationAlert().subscribe(data => {
-      console.log('Notification alert received:', data);
-    });
-
-    this.socketService.onAlerta().subscribe(data => {
-      console.log('Alerta data received:', data);
-    });
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
- 
+  ngOnInit(): void {
+    this.subscription = this.getMessages().subscribe((message) => {
+      this.humedad = message.message.humidity;
+      this.temp=message.message.temperature_C;
+      this.tempF=message.message.temperature_F;
+      console.log(this.temp);
+      this.changeDetectorRef.detectChanges();
+  });
+   
+}
+public getMessages(): Observable<any> {
+  return new Observable<any>((observer) => {
+    socket.on('temperatura', (message: string) => {
+      observer.next(message);
+    });
+
+    return () => {
+      socket.off('temperatura');
+    };
+  });
+}
+
+
 }
